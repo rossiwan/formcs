@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>รายละเอียดสินค้า - เสื้อ CSMJU</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+
+ <header class="flex justify-between items-center px-6 py-4 border-b bg-indigo-300 border-gray-200">
+    <nav class="text-gray-900 font-medium">
+      
+      <a href="detail-tshirt.html" class="hover:text-black whitespace-nowrap">เสื้อ</a>
+      <a href="detail-bag.html" class="hover:text-black whitespace-nowrap">กระเป๋า</a>
+      <a href="detail-pen.html" class="hover:text-black whitespace-nowrap">ปากกา</a>
+      <a href="detail-cup.html" class="hover:text-black whitespace-nowrap">แก้ว</a>
+      <a href="detail-cap.html" class="hover:text-black whitespace-nowrap">หมวก</a>
+      <a href="detail-book.html" class="hover:text-black whitespace-nowrap">สมุด</a>
+      <a href="detail-pin.html" class="hover:text-black whitespace-nowrap">เข็มกลัด</a>
+      <a href="detail-unbl.html" class="hover:text-black whitespace-nowrap">ร่ม</a>
+      <a href="index.html" class="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded hover:bg-yellow-500 transition-colors inline-block whitespace-nowrap text-sm">หน้าแรก</a>
+      <a href="login.html" class="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded hover:bg-yellow-500 transition-colors inline-block whitespace-nowrap text-sm">เจ้าหน้าที่</a>
+    </nav>
+  </header>
+
+
+   <div class="flex flex-col md:flex-row gap-8">
+    <!-- ฝั่งซ้าย: รูปภาพและรายละเอียด -->
+    <div class="md:w-1/2 flex flex-col items-center justify-center">
+      <img src="img.css\unbl-bla.png" alt="ร่ม comscience" class="w-72 h-72 object-contain mb-4" />
+      <h2 class="text-2xl font-bold mb-2">ร่ม comscience</h2>
+      <p class="text-sm text-gray-700 mb-2">คงเหลือ : <span class="text-indigo-600 font-bold">50</span></p>
+      <p class="text-lg text-gray-700 mb-2">ราคา: <span class="text-indigo-600 font-bold">199.00฿</span></p>
+      <ul class="text-gray-600 mb-4 text-sm list-disc pl-5">
+        <li>เนื้อผ้าคุณภาพดี ใส่สบาย</li>
+        <li>ลายเฉพาะกิจกรรมครบรอบ 30 ปี</li>
+        <li>มีให้เลือกหลายขนาดและสี</li>
+      </ul>
+    </div>
+    <!-- ฝั่งขวา: ฟอร์มสั่งซื้อ -->
+    <form class="md:w-1/2 bg-gray-50 p-6 rounded-lg shadow" id="orderForm">
+      <label class="block mb-2 font-medium" for="color">สี</label>
+      <select id="color" class="w-full mb-4 p-2 border rounded" required>
+        <option value="">--เลือกสี--</option>
+        <option value="ขาว">ขาว</option>
+        <option value="ดำ">ดำ</option>
+      </select>
+
+      <label class="block mb-2 font-medium" for="size">ขนาด</label>
+      <select id="size" class="w-full mb-4 p-2 border rounded" required>
+        <option value="">--เลือกขนาด--</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+
+      <label class="block mb-2 font-medium" for="quantity">จำนวน:</label>
+<input type="number" id="quantity" class="w-full mb-4 p-2 border rounded" min="1" value="1" />
+
+      <label class="block mb-2 font-medium" for="fullname">ชื่อ-นามสกุล</label>
+      <input type="text" id="fullname" class="w-full mb-4 p-2 border rounded" required minlength="5" maxlength="50" />
+
+      <label class="block mb-2 font-medium" for="orderDate">วันที่สั่งซื้อ</label>
+      <input type="date" id="orderDate" name="orderDate" class="w-full mb-4 p-2 border rounded" required />
+
+      <label class="block mb-2 font-medium" for="slip">แนบสลิปโอนเงิน (ถ้ามี)</label>
+      <input type="file" id="slip" name="slip" accept="image/*" class="w-full mb-4 p-2 border rounded" />
+
+      <label class="block mb-2 font-medium" for="phone">เบอร์โทรศัพท์</label>
+      <input type="tel" id="phone" class="w-full mb-4 p-2 border rounded" required pattern="0[0-9]{9}" />
+
+      <label class="block mb-2 font-medium" for="address">ที่อยู่</label>
+      <input type="text" id="address" class="w-full mb-4 p-2 border rounded" required minlength="10" maxlength="100" />
+
+      <label class="block mb-2 font-medium">วิธีรับสินค้า</label>
+      <div class="mb-4">
+        <label class="mr-4"><input type="radio" name="receive_method" value="pickup" required> รับเองที่ร้าน</label>
+        <label><input type="radio" name="receive_method" value="delivery"> จัดส่ง</label>
+      </div>
+
+      <div class="flex gap-4 mt-6">
+        <button type="submit" class="flex-1 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">สั่งซื้อ</button>
+        <button type="reset" class="flex-1 px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500">ล้างฟอร์ม</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- แจ้งเตือนแบบ popup -->
+  <div id="popup" class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg hidden">
+    ✅ เพิ่มสินค้าลงตะกร้าเรียบร้อยแล้ว!
+  </div>
+
+  <script>
+  function addToCart() {
+    const size = document.getElementById('size').value;
+    const color = document.getElementById('color').value;
+    const quantity = parseInt(document.getElementById('quantity').value) || 1;
+
+    const product = {
+      name: "เสื้อลาย CSMJU 30 ปี",
+      price: 1200,
+      color: color,
+      size: size,
+      quantity: quantity,
+      image: "img.css/T-shirt Design_ _CSMJU 30 ปี_.png"
+    };
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const foundIndex = cart.findIndex(item =>
+      item.name === product.name && item.color === product.color && item.size === product.size
+    );
+
+    if (foundIndex !== -1) {
+      cart[foundIndex].quantity += product.quantity;
+    } else {
+      cart.push(product);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    const popup = document.getElementById('popup');
+    popup.classList.remove('hidden');
+    setTimeout(() => popup.classList.add('hidden'), 3000);
+  }
+</script>
+</body>
+<footer class="bg-gray-200 text-center py-4">
+    <p class="text-gray-600">© 2023 csmju. All rights reserved.</p>
+  </footer>
+  
+</html>

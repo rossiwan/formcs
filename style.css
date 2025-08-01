@@ -1,0 +1,15 @@
+#slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+#slider {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+
+#slider img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}

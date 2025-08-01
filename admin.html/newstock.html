@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เพิ่มรายการสินค้า</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+  <header class="flex justify-between items-center px-6 py-4 border-b bg-indigo-300 border-gray-200">
+    <nav class="text-gray-900 font-medium w-full">
+      <div class="flex items-center w-full">
+        <a href="stock.html" class="hover:text-black whitespace-nowrap mr-6">คลังสินค้า</a>
+        <a href="index.html" class="bg-red-500 text-white font-bold px-3 py-1 rounded hover:bg-red-600 transition-colors inline-block whitespace-nowrap ml-auto">ออกจากระบบ</a>
+      </div>
+    </nav>
+  </header>
+  <div class="max-w-xl mx-auto mt-10 bg-gray-50 p-8 rounded-lg shadow">
+    <h2 class="text-2xl font-bold mb-6 text-center">เพิ่มรายการสินค้าใหม่</h2>
+    <form id="addProductForm" enctype="multipart/form-data">
+      <label class="block mb-2 font-medium" for="category">ประเภทสินค้า</label>
+      <select id="category" name="category" class="w-full mb-4 p-2 border rounded" required>
+        <option value="">--เลือกประเภท--</option>
+        <option value="เสื้อ">เสื้อ</option>
+        <option value="กระเป๋า">กระเป๋า</option>
+        <option value="ปากกา">ปากกา</option>
+        <option value="แก้ว">แก้ว</option>
+        <option value="หมวก">หมวก</option>
+        <option value="สมุด">สมุด</option>
+        <option value="เข็มกลัด">เข็มกลัด</option>
+        <option value="ร่ม">ร่ม</option>
+        <option value="อื่นๆ">อื่นๆ</option>
+      </select>
+
+      <label class="block mb-2 font-medium" for="name">ชื่อสินค้า</label>
+      <input type="text" id="name" name="name" class="w-full mb-4 p-2 border rounded" required minlength="2" maxlength="50" />
+
+      <label class="block mb-2 font-medium" for="desc">รายละเอียดสินค้า</label>
+      <textarea id="desc" name="desc" class="w-full mb-4 p-2 border rounded" required rows="3" maxlength="200"></textarea>
+
+      <label class="block mb-2 font-medium" for="price">ราคา (บาท)</label>
+      <input type="number" id="price" name="price" class="w-full mb-4 p-2 border rounded" required min="1" step="0.01" />
+
+      <label class="block mb-2 font-medium" for="quantity">จำนวน</label>
+      <input type="number" id="quantity" name="quantity" class="w-full mb-4 p-2 border rounded" required min="1" />
+
+      <label class="block mb-2 font-medium" for="color">สี</label>
+      <input type="text" id="color" name="color" class="w-full mb-4 p-2 border rounded" maxlength="30" />
+
+      <label class="block mb-2 font-medium" for="size">ขนาด</label>
+      <input type="text" id="size" name="size" class="w-full mb-4 p-2 border rounded" maxlength="30" />
+
+      <label class="block mb-2 font-medium" for="image">รูปสินค้า</label>
+      <input type="file" id="image" name="image" accept="image/*" class="w-full mb-6 p-2 border rounded" required />
+
+      <div class="flex gap-4 mt-6">
+        <button type="submit" class="flex-1 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">บันทึกสินค้า</button>
+        <button type="reset" class="flex-1 px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500">ล้างฟอร์ม</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
