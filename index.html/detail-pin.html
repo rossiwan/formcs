@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>รายละเอียดสินค้า - กระเป๋าcsmju</title>
+  <title>รายละเอียดสินค้า - เข็มกลัดcsmju</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white font-sans">
@@ -27,8 +27,8 @@
   <div class="flex flex-col md:flex-row gap-8">
     <!-- ฝั่งซ้าย: รูปภาพและรายละเอียด -->
     <div class="md:w-1/2 flex flex-col items-center justify-center">
-      <img src="/img/bag1.png" alt="สมุด comscience" class="w-72 h-72 object-contain mb-4" />
-      <h2 class="text-2xl font-bold mb-2">กระเป๋าcsmju</h2>
+      <img src="/img/pin-csmju.png" alt="เข็มกลัดcsmju" class="w-72 h-72 object-contain mb-4" />
+      <h2 class="text-2xl font-bold mb-2">เข็มกลัดcsmju</h2>
       <p class="text-sm text-gray-700 mb-2">คงเหลือ : <span class="text-indigo-600 font-bold">50</span></p>
       <p class="text-lg text-gray-700 mb-2">ราคา: <span class="text-indigo-600 font-bold">199.00฿</span></p>
       <ul class="text-gray-600 mb-4 text-sm list-disc pl-5">
@@ -85,46 +85,6 @@
       </div>
     </form>
   </div>
-
-  <!-- แจ้งเตือนแบบ popup -->
-  <div id="popup" class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg hidden">
-    ✅ เพิ่มสินค้าลงตะกร้าเรียบร้อยแล้ว!
-  </div>
-
-  <script>
-  function addToCart() {
-    const size = document.getElementById('size').value;
-    const color = document.getElementById('color').value;
-    const quantity = parseInt(document.getElementById('quantity').value) || 1;
-
-    const product = {
-      name: "สมุด CSMJU 30 ปี",
-      price: 1200,
-      color: color,
-      size: size,
-      quantity: quantity,
-      image: "img.css/book1.png"
-    };
-
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    const foundIndex = cart.findIndex(item =>
-      item.name === product.name && item.color === product.color && item.size === product.size
-    );
-
-    if (foundIndex !== -1) {
-      cart[foundIndex].quantity += product.quantity;
-    } else {
-      cart.push(product);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    const popup = document.getElementById('popup');
-    popup.classList.remove('hidden');
-    setTimeout(() => popup.classList.add('hidden'), 3000);
-  }
-  </script>
 
 </body>
 <footer class="bg-gray-200 text-center py-4">
