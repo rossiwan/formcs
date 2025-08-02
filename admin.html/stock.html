@@ -1,212 +1,254 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบจัดการคลังสินค้า</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0; /* เปลี่ยนเป็น 0 เพื่อให้ header ติดขอบบน */
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto; /* เพิ่ม margin ด้านบนและล่าง */
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .search-container {
-            margin-bottom: 20px;
-            text-align: right;
-        }
-        .search-container input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .product-image {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        .action-buttons button {
-            padding: 8px 12px;
-            margin: 2px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            color: #fff;
-        }
-        .action-buttons .edit {
-            background-color: #2196F3; /* สีน้ำเงิน */
-        }
-        .action-buttons .delete {
-            background-color: #f44336; /* สีแดง */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>จัดการคลังสินค้า | CSMJU Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+    .input-error {
+      border-color: red;
+    }
+    .product-image {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .action-buttons button {
+      padding: 8px 12px;
+      margin: 2px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #fff;
+    }
+    .action-buttons .edit {
+      background-color: #2563eb;
+    }
+    .action-buttons .delete {
+      background-color: #f44336;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-gray-50 font-sans antialiased">
 
-<header class="bg-indigo-700 text-white shadow-md">
-    
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        
-        <div class="flex items-center gap-6">
-            <a href="/admin.html/newstock.html" class="hover:text-gray-300">เพิ่มสินค้า</a>
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="../index.html" class="text-2xl font-bold text-indigo-600">CSMJU Store</a>
         </div>
-        <a href="/index.html" class="bg-red-500 text-white font-bold px-4 py-2 rounded-lg hover:bg-red-600 transition-colors">
-            ออกจากระบบ
-        </a>
+        <nav class="hidden md:flex space-x-4 items-center">
+        
+          <a href="newstock.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">เพิ่มสินค้า</a>
+          <a href="login.html" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">ออกจากระบบ</a>
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-indigo-600">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t mt-2">
+        <div class="flex flex-col p-4 space-y-2">
+      
+          <a href="newstock.html" class="text-gray-600 hover:text-indigo-600 py-2">เพิ่มสินค้า</a>
+          <a href="login.html" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">ออกจากระบบ</a>
+        </div>
+      </div>
     </div>
-</header>
-<div class="container">
-    <h1>ระบบจัดการคลังสินค้า</h1>
+  </header>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="ค้นหาชื่อสินค้า...">
-        <button onclick="searchProducts()">ค้นหา</button>
-    </div>
+  <!-- Stock Management Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">จัดการคลังสินค้า</h1>
 
-    <table>
+      <div class="search-container flex justify-end mb-6">
+        <input type="text" id="searchInput" placeholder="ค้นหาชื่อสินค้า..." class="p-3 w-80 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+        <button onclick="searchProducts()" class="ml-2 px-4 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">ค้นหา</button>
+      </div>
+
+      <table class="w-full border-collapse">
         <thead>
-            <tr>
-                <th>รูป</th>
-                <th>ชื่อสินค้า</th>
-                <th>จำนวนที่เหลือ</th>
-                <th>ราคา (บาท)</th>
-                <th>การจัดการ</th>
-            </tr>
+          <tr>
+            <th class="p-3 bg-gray-100 text-gray-700">รูป</th>
+            <th class="p-3 bg-gray-100 text-gray-700">ชื่อสินค้า</th>
+            <th class="p-3 bg-gray-100 text-gray-700">จำนวนที่เหลือ</th>
+            <th class="p-3 bg-gray-100 text-gray-700">ราคา (บาท)</th>
+            <th class="p-3 bg-gray-100 text-gray-700">การจัดการ</th>
+          </tr>
         </thead>
         <tbody id="productTableBody">
-            <tr>
-                <td><img src="img.css/T-shirt Design_ _CSMJU 30 ปี_.png" alt="เสื้อ" class="product-image"></td>
-                <td>เสื้อลาย csmju</td>
-                <td>50</td>
-                <td>199.00</td>
-                <td class="action-buttons">
-                    <button class="edit">แก้ไข</button>
-                    <button class="delete">ลบ</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="img.css/bag1.png" alt="กระเป๋า" class="product-image"></td>
-                <td>กระเป๋าcsmju</td>
-                <td>25</td>
-                <td>850.00฿</td>
-                <td class="action-buttons">
-                    <button class="edit">แก้ไข</button>
-                    <button class="delete">ลบ</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="img.css/pen csmju.png" alt="ปากกา" class="product-image"></td>
-                <td>ปากกาcsmju</td>
-                <td>10</td>
-                <td>150.00฿</td>
-                <td class="action-buttons">
-                    <button class="edit">แก้ไข</button>
-                    <button class="delete">ลบ</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="img.css/white-cup1.png" alt="แก้ว" class="product-image"></td>
-                <td>แก้ว commju</td>
-                <td>10</td>
-                <td>450.00฿</td>
-                <td class="action-buttons">
-                    <button class="edit">แก้ไข</button>
-                    <button class="delete">ลบ</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="img.css/black-cap.png" alt="หมวก" class="product-image"></td>
-                <td>หมวกcommju</td>
-                <td>10</td>
-                <td>350.00฿</td>
-                <td class="action-buttons">
-                    <button class="edit">แก้ไข</button>
-                    <button class="delete">ลบ</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="img.css/book1.png" alt="สมุด" class="product-image"></td>
-                <td>สมุด comscience</td>
-                <td>10</td>
-                <td>250.00฿</td>
-                <td class="action-buttons">
-                    <button class="edit">แก้ไข</button>
-                    <button class="delete">ลบ</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="img.css/pin-csmju.png" alt="เข็มกลัด" class="product-image"></td>
-                <td>เข็มกลัด csmju</td>
-                <td>10</td>
-                <td>150.00฿</td>
-                <td class="action-buttons">
-                    <button class="edit">แก้ไข</button>
-                    <button class="delete">ลบ</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="img.css/unbl-bla.png" alt="ร่ม" class="product-image"></td>
-                <td>ร่ม comscience</td>
-                <td>10</td>
-                <td>550.00฿</td>
-                <td class="action-buttons">
-                    <button class="edit">แก้ไข</button>
-                    <button class="delete">ลบ</button>
-                </td>
-            </tr>
+          <tr>
+            <td class="p-3"><img src="/img/t-shirt-csmju.png" alt="เสื้อ CSMJU" class="product-image"></td>
+            <td class="p-3">เสื้อ CSMJU</td>
+            <td class="p-3">50</td>
+            <td class="p-3">฿199.00</td>
+            <td class="p-3 action-buttons">
+              <button class="edit" onclick="editProduct('เสื้อ CSMJU')">แก้ไข</button>
+              <button class="delete" onclick="deleteProduct('เสื้อ CSMJU')">ลบ</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-3"><img src="/img/bag1.png" alt="กระเป๋า CSMJU" class="product-image"></td>
+            <td class="p-3">กระเป๋า CSMJU</td>
+            <td class="p-3">25</td>
+            <td class="p-3">฿199.00</td>
+            <td class="p-3 action-buttons">
+              <button class="edit" onclick="editProduct('กระเป๋า CSMJU')">แก้ไข</button>
+              <button class="delete" onclick="deleteProduct('กระเป๋า CSMJU')">ลบ</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-3"><img src="/img/pen_csmju.png" alt="ปากกา CSMJU" class="product-image"></td>
+            <td class="p-3">ปากกา CSMJU</td>
+            <td class="p-3">10</td>
+            <td class="p-3">฿199.00</td>
+            <td class="p-3 action-buttons">
+              <button class="edit" onclick="editProduct('ปากกา CSMJU')">แก้ไข</button>
+              <button class="delete" onclick="deleteProduct('ปากกา CSMJU')">ลบ</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-3"><img src="/img/white-cup1.png" alt="แก้ว CSMJU" class="product-image"></td>
+            <td class="p-3">แก้ว CSMJU</td>
+            <td class="p-3">10</td>
+            <td class="p-3">฿199.00</td>
+            <td class="p-3 action-buttons">
+              <button class="edit" onclick="editProduct('แก้ว CSMJU')">แก้ไข</button>
+              <button class="delete" onclick="deleteProduct('แก้ว CSMJU')">ลบ</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-3"><img src="/img/black-cap.png" alt="หมวก CSMJU" class="product-image"></td>
+            <td class="p-3">หมวก CSMJU</td>
+            <td class="p-3">10</td>
+            <td class="p-3">฿199.00</td>
+            <td class="p-3 action-buttons">
+              <button class="edit" onclick="editProduct('หมวก CSMJU')">แก้ไข</button>
+              <button class="delete" onclick="deleteProduct('หมวก CSMJU')">ลบ</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-3"><img src="/img/book1.png" alt="สมุด CSMJU" class="product-image"></td>
+            <td class="p-3">สมุด CSMJU</td>
+            <td class="p-3">10</td>
+            <td class="p-3">฿199.00</td>
+            <td class="p-3 action-buttons">
+              <button class="edit" onclick="editProduct('สมุด CSMJU')">แก้ไข</button>
+              <button class="delete" onclick="deleteProduct('สมุด CSMJU')">ลบ</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-3"><img src="/img/pin-csmju.png" alt="เข็มกลัด CSMJU" class="product-image"></td>
+            <td class="p-3">เข็มกลัด CSMJU</td>
+            <td class="p-3">10</td>
+            <td class="p-3">฿199.00</td>
+            <td class="p-3 action-buttons">
+              <button class="edit" onclick="editProduct('เข็มกลัด CSMJU')">แก้ไข</button>
+              <button class="delete" onclick="deleteProduct('เข็มกลัด CSMJU')">ลบ</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-3"><img src="/img/unbl-bla.png" alt="ร่ม CSMJU" class="product-image"></td>
+            <td class="p-3">ร่ม CSMJU</td>
+            <td class="p-3">10</td>
+            <td class="p-3">฿199.00</td>
+            <td class="p-3 action-buttons">
+              <button class="edit" onclick="editProduct('ร่ม CSMJU')">แก้ไข</button>
+              <button class="delete" onclick="deleteProduct('ร่ม CSMJU')">ลบ</button>
+            </td>
+          </tr>
         </tbody>
-    </table>
-</div>
+      </table>
+    </div>
+  </section>
 
-<script>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">CSMJU Store</h3>
+          <p class="text-gray-400">ร้านค้าออนไลน์สำหรับสินค้า CSMJU คุณภาพสูง ดีไซน์ทันสมัย</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">ลิงก์ด่วน</h3>
+          <ul class="space-y-2">
+            <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors">หน้าแรก</a></li>
+            <li><a href="login.html" class="text-gray-400 hover:text-white transition-colors">เจ้าหน้าที่</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">ติดต่อเรา</h3>
+          <p class="text-gray-400">Email: support@csmju.com</p>
+          <p class="text-gray-400">โทร: 123-456-7890</p>
+        </div>
+      </div>
+      <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+        <p class="text-gray-400">© 2025 CSMJU Store. สงวนลิขสิทธิ์.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Search Functionality
     function searchProducts() {
-        // ฟังก์ชันนี้จะใช้ JavaScript เพื่อค้นหาสินค้าในตาราง
-        const input = document.getElementById('searchInput');
-        const filter = input.value.toUpperCase();
-        const table = document.getElementById('productTableBody');
-        const rows = table.getElementsByTagName('tr');
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toUpperCase();
+      const table = document.getElementById('productTableBody');
+      const rows = table.getElementsByTagName('tr');
 
-        for (let i = 0; i < rows.length; i++) {
-            const productName = rows[i].getElementsByTagName('td')[1]; // คอลัมน์ที่ 2 คือชื่อสินค้า
-            if (productName) {
-                const textValue = productName.textContent || productName.innerText;
-                if (textValue.toUpperCase().indexOf(filter) > -1) {
-                    rows[i].style.display = "";
-                } else {
-                    rows[i].style.display = "none";
-                }
-            }
+      for (let i = 0; i < rows.length; i++) {
+        const productName = rows[i].getElementsByTagName('td')[1];
+        if (productName) {
+          const textValue = productName.textContent || productName.innerText;
+          if (textValue.toUpperCase().indexOf(filter) > -1) {
+            rows[i].style.display = "";
+          } else {
+            rows[i].style.display = "none";
+          }
         }
+      }
     }
-</script>
 
+    // Edit and Delete Button Functions (Placeholder)
+    function editProduct(productName) {
+      alert(`กำลังแก้ไขสินค้า: ${productName}`);
+      // Implement actual edit functionality here (e.g., redirect to edit page)
+    }
+
+    function deleteProduct(productName) {
+      if (confirm(`ยืนยันการลบสินค้า: ${productName}?`)) {
+        alert(`ลบสินค้า ${productName} สำเร็จ!`);
+        // Implement actual delete functionality here (e.g., remove row from table)
+      }
+    }
+  </script>
 </body>
 </html>

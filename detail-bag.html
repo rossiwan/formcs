@@ -3,89 +3,276 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>รายละเอียดสินค้า - กระเป๋าcsmju</title>
+  <title>รายละเอียดสินค้า - กระเป๋า CSMJU</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white font-sans">
+<body class="bg-gray-50 font-sans antialiased">
 
- <header class="flex justify-between items-center px-6 py-4 border-b bg-indigo-300 border-gray-200">
-    <nav class="text-gray-900 font-medium">
-      
-      <a href="detail-tshirt.html" class="hover:text-black whitespace-nowrap">เสื้อ</a>
-      <a href="detail-bag.html" class="hover:text-black whitespace-nowrap">กระเป๋า</a>
-      <a href="detail-pen.html" class="hover:text-black whitespace-nowrap">ปากกา</a>
-      <a href="detail-cup.html" class="hover:text-black whitespace-nowrap">แก้ว</a>
-      <a href="detail-cap.html" class="hover:text-black whitespace-nowrap">หมวก</a>
-      <a href="detail-book.html" class="hover:text-black whitespace-nowrap">สมุด</a>
-      <a href="detail-pin.html" class="hover:text-black whitespace-nowrap">เข็มกลัด</a>
-      <a href="detail-unbl.html" class="hover:text-black whitespace-nowrap">ร่ม</a>
-      <a href="/index.html" class="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded hover:bg-yellow-500 transition-colors inline-block whitespace-nowrap text-sm">หน้าแรก</a>
-      <a href="/admin.html/login.html" class="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded hover:bg-yellow-500 transition-colors inline-block whitespace-nowrap text-sm">เจ้าหน้าที่</a>
-    </nav>
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="index.html" class="text-2xl font-bold text-indigo-600">CSMJU Store</a>
+        </div>
+        <nav class="hidden md:flex space-x-4 items-center">
+          <a href="detail-tshirt.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">เสื้อ</a>
+          <a href="detail-bag.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">กระเป๋า</a>
+          <a href="detail-pen.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">ปากกา</a>
+          <a href="detail-cup.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">แก้ว</a>
+          <a href="detail-cap.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">หมวก</a>
+          <a href="detail-book.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">สมุด</a>
+          <a href="detail-pin.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">เข็มกลัด</a>
+          <a href="detail-unbl.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">ร่ม</a>
+          <a href="/admin.html/login.html" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">เจ้าหน้าที่</a>
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-indigo-600">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t mt-2">
+        <div class="flex flex-col p-4 space-y-2">
+          <a href="detail-tshirt.html" class="text-gray-600 hover:text-indigo-600 py-2">เสื้อ</a>
+          <a href="detail-bag.html" class="text-gray-600 hover:text-indigo-600 py-2">กระเป๋า</a>
+          <a href="detail-pen.html" class="text-gray-600 hover:text-indigo-600 py-2">ปากกา</a>
+          <a href="detail-cup.html" class="text-gray-600 hover:text-indigo-600 py-2">แก้ว</a>
+          <a href="detail-cap.html" class="text-gray-600 hover:text-indigo-600 py-2">หมวก</a>
+          <a href="detail-book.html" class="text-gray-600 hover:text-indigo-600 py-2">สมุด</a>
+          <a href="detail-pin.html" class="text-gray-600 hover:text-indigo-600 py-2">เข็มกลัด</a>
+          <a href="detail-unbl.html" class="text-gray-600 hover:text-indigo-600 py-2">ร่ม</a>
+          <a href="/admin.html/login.html" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">เจ้าหน้าที่</a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <div class="flex flex-col md:flex-row gap-8">
-    <!-- ฝั่งซ้าย: รูปภาพและรายละเอียด -->
-    <div class="md:w-1/2 flex flex-col items-center justify-center">
-      <img src="/img/bag1.png" alt="สมุด comscience" class="w-72 h-72 object-contain mb-4" />
-      <h2 class="text-2xl font-bold mb-2">กระเป๋าcsmju</h2>
-      <p class="text-sm text-gray-700 mb-2">คงเหลือ : <span class="text-indigo-600 font-bold">50</span></p>
-      <p class="text-lg text-gray-700 mb-2">ราคา: <span class="text-indigo-600 font-bold">199.00฿</span></p>
-      <ul class="text-gray-600 mb-4 text-sm list-disc pl-5">
-        <li>เนื้อผ้าคุณภาพดี ใส่สบาย</li>
-        <li>ลายเฉพาะกิจกรรมครบรอบ 30 ปี</li>
-        <li>มีให้เลือกหลายขนาดและสี</li>
-      </ul>
+  <!-- Product Detail Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col md:flex-row gap-8">
+      <!-- Left: Product Image and Details -->
+      <div class="md:w-1/2 flex flex-col items-center">
+        <div class="relative overflow-hidden rounded-lg shadow-md mb-6">
+          <img src="/img/bag1.png" alt="กระเป๋า CSMJU" class="product-image w-full max-w-md h-auto object-contain transition-transform duration-300" />
+        </div>
+        <h2 class="text-3xl font-bold text-gray-800 mb-3">กระเป๋า CSMJU</h2>
+        <p class="text-lg text-gray-600 mb-2">คงเหลือ: <span class="text-indigo-600 font-semibold">50</span></p>
+        <p class="text-xl text-gray-600 mb-4">ราคา: <span class="text-indigo-600 font-bold">฿199.00</span></p>
+        <ul class="text-gray-600 text-base list-disc pl-5 space-y-2">
+          <li>วัสดุคุณภาพสูง ทนทาน ใช้งานได้นาน</li>
+          <li>ลายเฉพาะสำหรับกิจกรรมครบรอบ 30 ปี</li>
+          <li>มีให้เลือกหลายขนาดและสีสัน</li>
+        </ul>
+      </div>
+      <!-- Right: Order Form -->
+      <form id="orderForm" class="md:w-1/2 bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-gray-800 mb-6">สั่งซื้อสินค้า</h3>
+        
+        <div class="mb-4">
+          <label class="block mb-2 font-medium text-gray-700" for="color">สี</label>
+          <select id="color" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+            <option value="">--เลือกสี--</option>
+            <option value="ขาว">ขาว</option>
+            <option value="ดำ">ดำ</option>
+          </select>
+          <p id="color-error" class="error-message hidden">กรุณาเลือกสี</p>
+        </div>
+
+        <div class="mb-4">
+          <label class="block mb-2 font-medium text-gray-700" for="size">ขนาด</label>
+          <select id="size" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+            <option value="">--เลือกขนาด--</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+          <p id="size-error" class="error-message hidden">กรุณาเลือกขนาด</p>
+        </div>
+
+        <div class="mb-4">
+          <label class="block mb-2 font-medium text-gray-700" for="quantity">จำนวน</label>
+          <input type="number" id="quantity" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" min="1" max="50" value="1" required />
+          <p id="quantity-error" class="error-message hidden">จำนวนต้องอยู่ระหว่าง 1 ถึง 50</p>
+        </div>
+
+        <div class="mb-4">
+          <label class="block mb-2 font-medium text-gray-700" for="fullname">ชื่อ-นามสกุล</label>
+          <input type="text" id="fullname" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required minlength="5" maxlength="50" />
+          <p id="fullname-error" class="error-message hidden">ชื่อต้องมีความยาว 5-50 ตัวอักษร</p>
+        </div>
+
+        <div class="mb-4">
+          <label class="block mb-2 font-medium text-gray-700" for="orderDate">วันที่สั่งซื้อ</label>
+          <input type="date" id="orderDate" name="orderDate" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required />
+          <p id="orderDate-error" class="error-message hidden">กรุณาเลือกวันที่สั่งซื้อ</p>
+        </div>
+
+        <div class="mb-4">
+          <label class="block mb-2 font-medium text-gray-700" for="slip">แนบสลิปโอนเงิน (ถ้ามี)</label>
+          <input type="file" id="slip" name="slip" accept="image/*" class="w-full p-3 border rounded-md" />
+        </div>
+
+        <div class="mb-4">
+          <label class="block mb-2 font-medium text-gray-700" for="phone">เบอร์โทรศัพท์</label>
+          <input type="tel" id="phone" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required pattern="0[0-9]{9}" placeholder="0XXXXXXXXX" />
+          <p id="phone-error" class="error-message hidden">เบอร์โทรศัพท์ต้องขึ้นต้นด้วย 0 และมี 10 ตัวเลข</p>
+        </div>
+
+        <div class="mb-4">
+          <label class="block mb-2 font-medium text-gray-700" for="address">ที่อยู่</label>
+          <input type="text" id="address" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required minlength="10" maxlength="100" />
+          <p id="address-error" class="error-message hidden">ที่อยู่ต้องมีความยาว 10-100 ตัวอักษร</p>
+        </div>
+
+        <div class="mb-6">
+          <label class="block mb-2 font-medium text-gray-700">วิธีรับสินค้า</label>
+          <div class="flex gap-4">
+            <label class="flex items-center">
+              <input type="radio" name="receive_method" value="pickup" class="mr-2" required />
+              รับเองที่ร้าน
+            </label>
+            <label class="flex items-center">
+              <input type="radio" name="receive_method" value="delivery" class="mr-2" />
+              จัดส่ง
+            </label>
+          </div>
+          <p id="receive_method-error" class="error-message hidden">กรุณาเลือกวิธีรับสินค้า</p>
+        </div>
+
+        <div class="flex gap-4">
+          <button type="submit" class="flex-1 px-4 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">สั่งซื้อ</button>
+          <button type="reset" class="flex-1 px-4 py-3 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 transition-colors">ล้างฟอร์ม</button>
+        </div>
+      </form>
     </div>
-    <!-- ฝั่งขวา: ฟอร์มสั่งซื้อ -->
-    <form class="md:w-1/2 bg-gray-50 p-6 rounded-lg shadow" id="orderForm">
-      <label class="block mb-2 font-medium" for="color">สี</label>
-      <select id="color" class="w-full mb-4 p-2 border rounded" required>
-        <option value="">--เลือกสี--</option>
-        <option value="ขาว">ขาว</option>
-        <option value="ดำ">ดำ</option>
-      </select>
+  </section>
 
-      <label class="block mb-2 font-medium" for="size">ขนาด</label>
-      <select id="size" class="w-full mb-4 p-2 border rounded" required>
-        <option value="">--เลือกขนาด--</option>
-        <option value="S">S</option>
-        <option value="M">M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-      </select>
-
-      <label class="block mb-2 font-medium" for="quantity">จำนวน:</label>
-<input type="number" id="quantity" class="w-full mb-4 p-2 border rounded" min="1" value="1" />
-
-      <label class="block mb-2 font-medium" for="fullname">ชื่อ-นามสกุล</label>
-      <input type="text" id="fullname" class="w-full mb-4 p-2 border rounded" required minlength="5" maxlength="50" />
-
-      <label class="block mb-2 font-medium" for="orderDate">วันที่สั่งซื้อ</label>
-      <input type="date" id="orderDate" name="orderDate" class="w-full mb-4 p-2 border rounded" required />
-
-      <label class="block mb-2 font-medium" for="slip">แนบสลิปโอนเงิน (ถ้ามี)</label>
-      <input type="file" id="slip" name="slip" accept="image/*" class="w-full mb-4 p-2 border rounded" />
-
-      <label class="block mb-2 font-medium" for="phone">เบอร์โทรศัพท์</label>
-      <input type="tel" id="phone" class="w-full mb-4 p-2 border rounded" required pattern="0[0-9]{9}" />
-
-      <label class="block mb-2 font-medium" for="address">ที่อยู่</label>
-      <input type="text" id="address" class="w-full mb-4 p-2 border rounded" required minlength="10" maxlength="100" />
-
-      <label class="block mb-2 font-medium">วิธีรับสินค้า</label>
-      <div class="mb-4">
-        <label class="mr-4"><input type="radio" name="receive_method" value="pickup" required> รับเองที่ร้าน</label>
-        <label><input type="radio" name="receive_method" value="delivery"> จัดส่ง</label>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">CSMJU Store</h3>
+          <p class="text-gray-400">ร้านค้าออนไลน์สำหรับสินค้า CSMJU คุณภาพสูง ดีไซน์ทันสมัย</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">ลิงก์ด่วน</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">หน้าแรก</a></li>
+            <li><a href="/admin.html/login.html" class="text-gray-400 hover:text-white transition-colors">เจ้าหน้าที่</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">ติดต่อเรา</h3>
+          <p class="text-gray-400">Email: support@csmju.com</p>
+          <p class="text-gray-400">โทร: 123-456-7890</p>
+        </div>
       </div>
-
-      <div class="flex gap-4 mt-6">
-        <button type="submit" class="flex-1 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">สั่งซื้อ</button>
-        <button type="reset" class="flex-1 px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500">ล้างฟอร์ม</button>
+      <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+        <p class="text-gray-400">© 2025 CSMJU Store. สงวนลิขสิทธิ์.</p>
       </div>
-  </div>
-</body>
-<footer class="bg-gray-200 text-center py-4">
-    <p class="text-gray-600">© 2023 csmju. All rights reserved.</p>
+    </div>
   </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Form Validation
+    const orderForm = document.getElementById('orderForm');
+    orderForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+
+      // Reset error states
+      document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+      document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
+
+      // Validate Color
+      const color = document.getElementById('color');
+      if (!color.value) {
+        color.classList.add('input-error');
+        document.getElementById('color-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Size
+      const size = document.getElementById('size');
+      if (!size.value) {
+        size.classList.add('input-error');
+        document.getElementById('size-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Quantity
+      const quantity = document.getElementById('quantity');
+      if (quantity.value < 1 || quantity.value > 50) {
+        quantity.classList.add('input-error');
+        document.getElementById('quantity-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Fullname
+      const fullname = document.getElementById('fullname');
+      if (fullname.value.length < 5 || fullname.value.length > 50) {
+        fullname.classList.add('input-error');
+        document.getElementById('fullname-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Order Date
+      const orderDate = document.getElementById('orderDate');
+      if (!orderDate.value) {
+        orderDate.classList.add('input-error');
+        document.getElementById('orderDate-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Phone
+      const phone = document.getElementById('phone');
+      const phonePattern = /^0[0-9]{9}$/;
+      if (!phonePattern.test(phone.value)) {
+        phone.classList.add('input-error');
+        document.getElementById('phone-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Address
+      const address = document.getElementById('address');
+      if (address.value.length < 10 || address.value.length > 100) {
+        address.classList.add('input-error');
+        document.getElementById('address-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Receive Method
+      const receiveMethod = document.querySelector('input[name="receive_method"]:checked');
+      if (!receiveMethod) {
+        document.getElementById('receive_method-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (isValid) {
+        alert('สั่งซื้อสำเร็จ! ข้อมูลถูกส่งเรียบร้อยแล้ว');
+        orderForm.reset();
+      }
+    });
+
+    // Reset Form
+    orderForm.addEventListener('reset', () => {
+      document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+      document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
+    });
+  </script>
+</body>
 </html>

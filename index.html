@@ -3,158 +3,260 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>csmju</title>
+  <title>CSMJU Store</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" /> 
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white font-sans">
+<body class="bg-gray-50 font-sans antialiased">
 
-  <!-- เมนูแนวนอน -->
-  <header class="flex justify-between items-center px-6 py-4 border-b bg-indigo-300 border-gray-200">
-    <nav class="text-gray-900 font-medium">
-      
-      <div class="flex items-center w-full">
-        <a href="detail-tshirt.html" class="hover:text-black whitespace-nowrap">เสื้อ</a>
-        <a href="detail-bag.html" class="hover:text-black whitespace-nowrap">กระเป๋า</a>
-        <a href="detail-pen.html" class="hover:text-black whitespace-nowrap">ปากกา</a>
-        <a href="detail-cup.html" class="hover:text-black whitespace-nowrap">แก้ว</a>
-        <a href="detail-cap.html" class="hover:text-black whitespace-nowrap">หมวก</a>
-        <a href="detail-book.html" class="hover:text-black whitespace-nowrap">สมุด</a>
-        <a href="detail-pin.html" class="hover:text-black whitespace-nowrap">เข็มกลัด</a>
-        <a href="detail-unbl.html" class="hover:text-black whitespace-nowrap">ร่ม</a>
-        <a href="index.html" class="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded hover:bg-yellow-500 transition-colors inline-block whitespace-nowrap text-sm">หน้าแรก</a>
-        <a href="/admin.html/login.html" class="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded hover:bg-yellow-500 transition-colors inline-block whitespace-nowrap text-sm">เจ้าหน้าที่</a>
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="index.html" class="text-2xl font-bold text-indigo-600">CSMJU Store</a>
+        </div>
+        <nav class="hidden md:flex space-x-4 items-center">
+          <a href="detail-tshirt.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">เสื้อ</a>
+          <a href="detail-bag.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">กระเป๋า</a>
+          <a href="detail-pen.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">ปากกา</a>
+          <a href="detail-cup.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">แก้ว</a>
+          <a href="detail-cap.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">หมวก</a>
+          <a href="detail-book.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">สมุด</a>
+          <a href="detail-pin.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">เข็มกลัด</a>
+          <a href="detail-unbl.html" class="text-gray-600 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">ร่ม</a>
+          <a href="/admin.html/login.html" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">เจ้าหน้าที่</a>
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-indigo-600">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
-    </nav>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t mt-2">
+        <div class="flex flex-col p-4 space-y-2">
+          <a href="detail-tshirt.html" class="text-gray-600 hover:text-indigo-600 py-2">เสื้อ</a>
+          <a href="detail-bag.html" class="text-gray-600 hover:text-indigo-600 py-2">กระเป๋า</a>
+          <a href="detail-pen.html" class="text-gray-600 hover:text-indigo-600 py-2">ปากกา</a>
+          <a href="detail-cup.html" class="text-gray-600 hover:text-indigo-600 py-2">แก้ว</a>
+          <a href="detail-cap.html" class="text-gray-600 hover:text-indigo-600 py-2">หมวก</a>
+          <a href="detail-book.html" class="text-gray-600 hover:text-indigo-600 py-2">สมุด</a>
+          <a href="detail-pin.html" class="text-gray-600 hover:text-indigo-600 py-2">เข็มกลัด</a>
+          <a href="detail-unbl.html" class="text-gray-600 hover:text-indigo-600 py-2">ร่ม</a>
+          <a href="/admin.html/login.html" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">เจ้าหน้าที่</a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- Banner ภาพใหญ่ -->
-
-<section class="relative w-full max-w-screen-xl mx-auto overflow-hidden 
-                h-40 sm:h-56 md:h-72 lg:h-80">
-    <div id="slider" class="flex w-[300%] h-full transition-transform duration-700">
-      <img src="img.css/T-shirt.png" alt="เสื้อ"
-           class="w-full h-40 sm:h-56 md:h-72 lg:h-80 object-cover" />
-      <img src="img.css/pen csmju.png" alt="pen 1"
-           class="w-full h-40 sm:h-56 md:h-72 lg:h-80 object-cover" />
-      <img src="img.css/bag1.png" alt="กระเป๋า"
-           class="w-full h-40 sm:h-56 md:h-72 lg:h-80 object-cover" />
+  <!-- Banner Slider -->
+  <section class="relative max-w-full overflow-hidden h-64 sm:h-96 md:h-[28rem] lg:h-[32rem]">
+    <div id="slider" class="flex w-[300%] h-full transition-transform duration-700 ease-in-out">
+      <div class="relative w-full h-full">
+        <img src="/img/t-shirt-csmju.png" alt="เสื้อ CSMJU" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+          <h2 class="text-white text-2xl sm:text-4xl font-bold">คอลเลคชันเสื้อ CSMJU</h2>
+        </div>
+      </div>
+      <div class="relative w-full h-full">
+        <img src="/img/bag1.png" alt="กระเป๋า CSMJU" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+          <h2 class="text-white text-2xl sm:text-4xl font-bold">กระเป๋าสไตล์โมเดิร์น</h2>
+        </div>
+      </div>
+      <div class="relative w-full h-full">
+        <img src="/img/white-cup1.png" alt="แก้ว CSMJU" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+          <h2 class="text-white text-2xl sm:text-4xl font-bold">แก้วดีไซน์พิเศษ</h2>
+        </div>
+      </div>
+    </div>
+    <!-- Slider Controls -->
+    <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white bg-opacity-70 p-3 rounded-full shadow-lg hover:bg-opacity-100 transition-all">
+      <svg class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white bg-opacity-70 p-3 rounded-full shadow-lg hover:bg-opacity-100 transition-all">
+      <svg class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+    <!-- Slider Dots -->
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
   </section>
 
-  <!-- Indicators (จุดเล็ก) -->
-  <div id="indicators" class="flex justify-center mt-4 gap-2"></div>
+  <!-- Product Grid -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8">สินค้าแนะนำ</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Product Card: T-Shirt -->
+      <a href="detail-tshirt.html" class="product-card block bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
+        <div class="relative overflow-hidden">
+          <img src="/img/t-shirt-csmju.png" alt="เสื้อ CSMJU" class="product-image w-full h-64 object-cover transition-transform duration-300" />
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">เสื้อ CSMJU</h3>
+          <p class="text-indigo-600 font-medium mt-1">฿199.00</p>
+        </div>
+      </a>
+      <!-- Product Card: Bag -->
+      <a href="detail-bag.html" class="product-card block bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
+        <div class="relative overflow-hidden">
+          <img src="/img/bag1.png" alt="กระเป๋า CSMJU" class="product-image w-full h-64 object-cover transition-transform duration-300" />
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">กระเป๋า CSMJU</h3>
+          <p class="text-indigo-600 font-medium mt-1">฿199.00</p>
+        </div>
+      </a>
+      <!-- Product Card: Pen -->
+      <a href="detail-pen.html" class="product-card block bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
+        <div class="relative overflow-hidden">
+          <img src="/img/pen_csmju.png" alt="ปากกา CSMJU" class="product-image w-full h-64 object-cover transition-transform duration-300" />
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">ปากกา CSMJU</h3>
+          <p class="text-indigo-600 font-medium mt-1">฿199.00</p>
+        </div>
+      </a>
+      <!-- Product Card: Cup -->
+      <a href="detail-cup.html" class="product-card block bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
+        <div class="relative overflow-hidden">
+          <img src="/img/white-cup1.png" alt="แก้ว CSMJU" class="product-image w-full h-64 object-cover transition-transform duration-300" />
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">แก้ว CSMJU</h3>
+          <p class="text-indigo-600 font-medium mt-1">฿199.00</p>
+        </div>
+      </a>
+      <!-- Product Card: Cap -->
+      <a href="detail-cap.html" class="product-card block bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
+        <div class="relative overflow-hidden">
+          <img src="/img/black-cap.png" alt="หมวก CSMJU" class="product-image w-full h-64 object-cover transition-transform duration-300" />
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">หมวก CSMJU</h3>
+          <p class="text-indigo-600 font-medium mt-1">฿199.00</p>
+        </div>
+      </a>
+      <!-- Product Card: Notebook -->
+      <a href="detail-book.html" class="product-card block bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
+        <div class="relative overflow-hidden">
+          <img src="/img/book1.png" alt="สมุด CSMJU" class="product-image w-full h-64 object-cover transition-transform duration-300" />
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">สมุด CSMJU</h3>
+          <p class="text-indigo-600 font-medium mt-1">฿199.00</p>
+        </div>
+      </a>
+      <!-- Product Card: Pin -->
+      <a href="detail-pin.html" class="product-card block bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
+        <div class="relative overflow-hidden">
+          <img src="/img/pin-csmju.png" alt="เข็มกลัด CSMJU" class="product-image w-full h-64 object-cover transition-transform duration-300" />
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">เข็มกลัด CSMJU</h3>
+          <p class="text-indigo-600 font-medium mt-1">฿199.00</p>
+        </div>
+      </a>
+      <!-- Product Card: Umbrella -->
+      <a href="detail-unbl.html" class="product-card block bg-white rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg">
+        <div class="relative overflow-hidden">
+          <img src="/img/unbl-bla.png" alt="ร่ม CSMJU" class="product-image w-full h-64 object-cover transition-transform duration-300" />
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg text-gray-800">ร่ม CSMJU</h3>
+          <p class="text-indigo-600 font-medium mt-1">฿199.00</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">CSMJU Store</h3>
+          <p class="text-gray-400">ร้านค้าออนไลน์สำหรับสินค้า CSMJU คุณภาพสูง ดีไซน์ทันสมัย</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">ลิงก์ด่วน</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">หน้าแรก</a></li>
+            <li><a href="/admin.html/login.html" class="text-gray-400 hover:text-white transition-colors">เจ้าหน้าที่</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">ติดต่อเรา</h3>
+          <p class="text-gray-400">Email: support@csmju.com</p>
+          <p class="text-gray-400">โทร: 123-456-7890</p>
+        </div>
+      </div>
+      <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+        <p class="text-gray-400">© 2025 CSMJU Store. สงวนลิขสิทธิ์.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
+    // Slider Functionality
     const slider = document.getElementById('slider');
     const slides = slider.children;
-    const indicatorsContainer = document.getElementById('indicators');
     const slidesCount = slides.length;
+    const dots = document.querySelectorAll('.dot');
     let index = 0;
-
-    // สร้างจุด (dot) ตามจำนวนสไลด์
-    const indicators = [];
-    for (let i = 0; i < slidesCount; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'w-3 h-3 rounded-full bg-gray-400 cursor-pointer';
-      dot.addEventListener('click', () => {
-        index = i;
-        updateSlide();
-      });
-      indicatorsContainer.appendChild(dot);
-      indicators.push(dot);
-    }
 
     function updateSlide() {
       const slideWidth = slides[0].clientWidth;
       slider.style.transform = `translateX(-${index * slideWidth}px)`;
-
-      indicators.forEach((dot, i) => {
-        dot.className = `w-3 h-3 rounded-full cursor-pointer ${
-          i === index ? 'bg-indigo-500' : 'bg-gray-400'
-        }`;
+      // Update active dot
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
       });
     }
 
+    prevBtn.addEventListener('click', () => {
+      index = (index === 0) ? slidesCount - 1 : index - 1;
+      updateSlide();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      index = (index === slidesCount - 1) ? 0 : index + 1;
+      updateSlide();
+    });
+
+    // Dot navigation
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        index = i;
+        updateSlide();
+      });
+    });
+
+    // Auto-slide every 5 seconds
+    setInterval(() => {
+      index = (index === slidesCount - 1) ? 0 : index + 1;
+      updateSlide();
+    }, 5000);
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Resize handler to update slide position
+    window.addEventListener('resize', updateSlide);
   </script>
-
-  <!-- สินค้าแนะนำแบบ Grid -->
-  <section class="max-w-7xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold mb-8">สินค้าแนะนำ</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <!-- เสื้อ -->
-      <a href="detail-tshirt.html" class="block group relative cursor-pointer overflow-hidden rounded-lg shadow-lg">
-        <img src="/img/t-shirt-csmju.png" alt="เสื้อ" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4">
-          <h3 class="font-semibold text-lg">เสื้อลาย csmju</h3>
-          <p class="text-gray-700 mt-1">฿199.00</p>
-        </div>
-      </a>
-
-      <!-- กระเป๋า -->
-      <a href="detail-bag.html" class="block group relative cursor-pointer overflow-hidden rounded-lg shadow-lg">
-        <img src="/img\bag1.png" alt="กระเป๋า" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4">
-          <h3 class="font-semibold text-lg">กระเป๋าสะพาย</h3>
-          <p class="text-gray-700 mt-1">฿850.00</p>
-        </div>
-      </a>
-      <!-- ปากกา -->
-      <a href="detail-pen.html" class="block group relative cursor-pointer overflow-hidden rounded-lg shadow-lg">
-        <img src="/img/pen_csmju.png" alt="ปากกา" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4">
-          <h3 class="font-semibold text-lg">ปากกา</h3>
-          <p class="text-gray-700 mt-1">฿150.00</p>
-        </div>
-      </a>
-      <!-- แก้ว -->
-      <a href="detail-cup.html" class="block group relative cursor-pointer overflow-hidden rounded-lg shadow-lg">
-        <img src="/img/white-cup1.png" alt="แก้ว" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4">
-          <h3 class="font-semibold text-lg">แก้ว commju</h3>
-          <p class="text-gray-700 mt-1">฿450.00</p>
-        </div>
-      </a>
-      <!-- หมวก-->
-      <a href="detail-cap.html" class="block group relative cursor-pointer overflow-hidden rounded-lg shadow-lg">
-        <img src="/img/black-cap.png" alt="หมวก" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4">
-          <h3 class="font-semibold text-lg">หมวก commju</h3>
-          <p class="text-gray-700 mt-1">฿350.00</p>
-        </div>
-      </a>
-      <!-- สมุด-->
-       <a href="detail-book.html" class="block group relative cursor-pointer overflow-hidden rounded-lg shadow-lg">
-        <img src="/img/book1.png" alt="สมุด" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4">
-          <h3 class="font-semibold text-lg">สมุด comscience</h3>
-          <p class="text-gray-700 mt-1">฿250.00</p>
-        </div>
-      <!---เข็มกลัด--->
-      </a>
-      <a href="detail-pin.html" class="block group relative cursor-pointer overflow-hidden rounded-lg shadow-lg">
-        <img src="/img/pin-csmju.png" alt="เข็ม" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105" />
-        <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4">
-          <h3 class="font-semibold text-lg">เข็มกลัดcsmju</h3>
-          <p class="text-gray-700 mt-1">฿150.00</p>
-        </div>
-      <!---->>
-      </a>
-       <a href="detail-unbl.html" class="block group relative cursor-pointer overflow-hidden rounded-lg shadow-lg">
-        <img src="/img/unbl-bla.png" alt="ร่ม" class="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105" />
-
-        <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4">
-          <h3 class="font-semibold text-lg">ร่ม comscience</h3>
-          <p class="text-gray-700 mt-1">฿550.00</p>
-        </div>
-      </a>
-    </div>
-
-  </section>
-  <body>
- 
-  <footer class="bg-gray-200 text-center py-4">
-    <p class="text-gray-600">© 2023 csmju. All rights reserved.</p>
-  </footer>
+</body>
 </html>
